@@ -2,7 +2,6 @@ import requests
 import sys
 from tabulate import tabulate
 
-
 # Distance parcourue à 10kms/h en 1 min = 10/60 = 0.1666..
 
 # Distance parcourue pendant le temps de démarrage soit 9min
@@ -30,26 +29,10 @@ from tabulate import tabulate
 TPS_PAUSE_H_DEC = 24.7778 / 60 # -- 0.4129633... 24min46
 
 
-# ######
-# # Distance parcourue à 90kms/h en 8 min
-# # DIST_SPEED = 12
-# # DIST_SPEED - DIST_START = 22/3 = 7.3333..
-# ###########
-# # 8 - TPS_SPEED = 
-
-# # DITS_START = DIST_STOP ==> on multiplie par 2 la différence de 
-
-
-# # (9-5) * 2 = 8 
-# #  . 4 c'est le temps perdu à freiner sur la distance de freinage * 2 pour l'accelaration | 15 temps de la pause
-# # Differentiel entre temps de pause et temps de route
-# TPS_PAUSE_H_DEC = 23 / 60
-# # temps plein gaz pendant temps DIST_START
-# # (Hdec_to_H(7.506 / 90))   5min
-
 # On effectue une recherche internet avec les villes en paramètres
 def make_url (depart, arrivee):
     return "https://www.bonnesroutes.com/distance/?from="+depart+"&to="+arrivee
+
 
 # On récupère le contenu de la recherche internet
 def get_html (url):
@@ -69,6 +52,7 @@ def html_to_kms (html):                                             #On coupe:
 # On retourne le temps de trajet sans les pauses
 def get_temps_theorique (kms):
     return kms/90 + 8/60 # 8/60 = temps perdu lors du démarrage et du freinage en minutes
+
 
 # On transforme uen date au format 2,5h à 2h30
 def Hdec_to_H(temps):
@@ -125,24 +109,3 @@ if __name__ == "__main__":
         p_print(v_depart, v_arrive, kms, temps)
     else :
         print("Nombre d'argument incorrecte")
-
-
-
-
-
-#     '''
-#     get args, si moins long que 2 ou plus -> erreur (if len(args<3) ou len(args>3): else msg d'erreur)
-#     make url
-#     get html
-#     html to km
-#     ALGO
-#     pprint
-
-#     '''
-
-
-
-
-
-
-
