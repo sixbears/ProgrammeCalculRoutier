@@ -51,7 +51,7 @@ def html_to_kms (html):                                             #On coupe:
 
 # On retourne le temps de trajet sans les pauses
 def get_temps_theorique (kms):
-    return kms/90 + 8/60 # 8/60 = temps perdu lors du démarrage et du freinage en minutes
+    return kms/90 + 9.7778/60 # 9.7778/60 = temps perdu lors du démarrage et du freinage en minutes
 
 
 # On transforme uen date au format 2,5h à 2h30
@@ -76,7 +76,7 @@ def calcul_nb_pause (temps_theorique):
 
 # On recupère le temps réel du trajet en comptant les pauses
 def get_temps (kms, nb_pause):
-    return kms/90 + 8/60 + TPS_PAUSE_H_DEC * nb_pause # 8/60 = temps perdu lors du démarrage et du freinage en minutes
+    return kms/90 + 9.7778/60 + TPS_PAUSE_H_DEC * nb_pause # 9.7778/60 = temps perdu lors du démarrage et du freinage en minutes
 
 
 # On retourne un joli tableau 
