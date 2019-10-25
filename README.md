@@ -1,6 +1,6 @@
 # ProgrammeCalculRoutier
 
-Exécuter ```pip install -r requirement.txt``` pour obtenir la librairie Tabulate
+Exécuter ```pip install -r requirements.txt``` pour obtenir la librairie Tabulate
 
 Pour exécuter le programme tapez:  
 python application.py arg1 arg2
